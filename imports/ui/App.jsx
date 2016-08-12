@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
-
-import Task from './Task.jsx';
+import React, {Component, PropTypes} from 'react';
+import ReactDOM from 'react-dom';
+import { browserHistory, Router, Route, Link, withRouter } from 'react-router';
+import {createContainer} from 'meteor/react-meteor-data';
 
 // App component - represents the whole app
-export default class App extends Component {
-	getTasks() {
-		return [
-			{ _id: 1, text: 'This is task 1' },
-			{ _id: 2, text: 'This is task 2' },
-			{ _id: 3, text: 'This is task 3' },
-		];
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			loggedIn : false
+		}
 	}
-
-	renderTasks() {
-		return this.getTasks().map((task) => (
-			<Task key={task._id} task={task} />
-		));
-	}
-
 	render() {
 		return (
 			<div className="container">
 				<header>
-					<h1>Todo List</h1>
+					<h1>Add message</h1>
 				</header>
-
 				<ul>
-					{this.renderTasks()}
+					aaaa
 				</ul>
 			</div>
 		);
 	}
 }
+
+App.propTypes = {
+
+};
+
+export default createContainer(()=> {
+	return {
+
+	}
+}, App)
